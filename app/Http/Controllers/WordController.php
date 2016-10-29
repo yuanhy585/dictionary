@@ -12,8 +12,8 @@ class WordController extends Controller
 {
     public function index()
     {
-        $words = DB::table('lexis')->get();
-        return view('word.index',compact('words'));
+        $words = DB::table('lexis')->paginate(3);
+        return view('word.index',['words' => $words]);
     }
 
     public function create()

@@ -44,5 +44,6 @@
         </table>
     </div>
 </div>
+    {!! $words->links() !!}
 </div>
 @endsection
