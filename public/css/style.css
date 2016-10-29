@@ -1,0 +1,26 @@
+.contain{
+    margin-top: 100px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 140px;
+
+}
+
+.index_btn{
+    margin-right:50px;
+    float:right;
+}
+
+caption, th, tr, td{
+    text-align:center;
+}
+
+caption{
+    font-size:50px;
+    color:black;
+    margin:10px 0px;
+}
+
+#mytable thead tr th{
+    text-align:center;
+}
