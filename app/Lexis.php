@@ -10,5 +10,10 @@ class Lexis extends Model
         'spelling', 'part_of_speech', 'pronunciation', 'meaning'
     ];
 
+//    单词和用户多对一
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
 
 }

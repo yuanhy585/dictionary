@@ -2,18 +2,30 @@
 
 @section('content')
 <div class="container">
-    <div class="row">
-        <div class="col-md-4"  style="float:right;">
+    <h2>Word Table</h2><br/><br/>
+    <div class="row col-md-12">
+        <form class="form-inline" action="/word" role="form">
+            <div class="form-group" style="float:left;" >
+                <input type="text" class="form-control" name="findByUserName"
+                       placeholder="请输入查询关键字"/>
+                <button type="submit" class="btn btn-primary">
+                    搜索
+                </button>
+            </div>
+        </form>
+
+        <div style="float:right;">
             <a class="btn btn-info" href="/word/create">
                 添加新词
             </a>
         </div>
+        <br/><br/><hr/>
     </div>
 
 <div class="container">
     <div class="row">
         <table class="table table-bordered">
-            <caption>Word Table</caption>
+
             <thead>
                 <th class="text-center">id</th>
                 <th>spelling</th>
@@ -44,6 +56,6 @@
         </table>
     </div>
 </div>
-    {!! $words->links() !!}
+    {!! $words->appends(['word'=>isset($a)?json_encode($a):""])->render() !!}
 </div>
 @endsection

@@ -27,6 +27,6 @@ class User extends Authenticatable
     // 创建者与词汇一对多
     public function words()
     {
-        return $this->hasMany('App\Word');
+        return $this->hasMany('App\Lexis');
     }
 }

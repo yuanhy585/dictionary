@@ -10,10 +10,17 @@ use Illuminate\Support\Facades\DB;
 
 class WordController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        $words = DB::table('lexis')->paginate(3);
-        return view('word.index',['words' => $words]);
+        $inputs = $request->has('word')?json_decode($request->input('word'),true):$request->all();
+
+        $words = Lexis::whereHas('user', function($query) use ($inputs){
+            if(isset($inputs['findByUserName'])){
+                $query->where('name','LIKE','%'.$inputs['findByUserName'].'%');
+            }
+        })
+        ->paginate(3);
+        return view('word.index',compact('words'));
     }
 
     public function create()
