@@ -10,17 +10,21 @@ use Illuminate\Support\Facades\DB;
 
 class WordController extends Controller
 {
+
     public function index(Request $request)
     {
-        $inputs = $request->has('word')?json_decode($request->input('word'),true):$request->all();
+        $inputs = $request->has('select')?json_decode($request->input('select'),true):$request->all();
 
-        $words = Lexis::whereHas('user', function($query) use ($inputs){
+        $words = Lexis::whereHas('user',function($query) use ($inputs){
             if(isset($inputs['findByUserName'])){
                 $query->where('name','LIKE','%'.$inputs['findByUserName'].'%');
             }
         })
-        ->paginate(3);
-        return view('word.index',compact('words'));
+        ->paginate(5);
+
+        $a = $inputs;
+
+        return view('word.index', compact('words','a'));
     }
 
     public function create()

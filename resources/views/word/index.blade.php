@@ -25,13 +25,13 @@
 <div class="container">
     <div class="row">
         <table class="table table-bordered">
-
             <thead>
                 <th class="text-center">id</th>
                 <th>spelling</th>
                 <th>part of speech</th>
                 <th>pronunciation</th>
                 <th>meaning</th>
+                <th>user</th>
                 <th>operation</th>
             </thead>
             <tbody>
@@ -46,6 +46,11 @@
                     <td>{{$word->part_of_speech}}</td>
                     <td>{{$word->pronunciation}}</td>
                     <td>{{$word->meaning}}</td>
+                    @if(App\User::where('id',$word->user_id)->first())
+                        <td>{{App\User::where('id',$word->user_id)->first()->name}}</td>
+                    @else
+                        <td></td>
+                    @endif
                     <td>
                         <a class="btn btn-primary" href="/word/{{$word->id}}/edit">Edit</a>
                         <a class="btn btn-danger" href="/word/{{$word->id}}/delete">Delete</a>
@@ -56,6 +61,6 @@
         </table>
     </div>
 </div>
-    {!! $words->appends(['word'=>isset($a)?json_encode($a):""])->render() !!}
+    {!! $words->appends(['select'=>isset($a)?json_encode($a):""])->render() !!}
 </div>
 @endsection
