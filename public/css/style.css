@@ -11,15 +11,10 @@
     float:right;
 }
 
-caption, th, tr, td{
+th,td{
     text-align:center;
 }
 
-caption{
-    font-size:50px;
-    color:black;
-    margin:10px 0px;
-}
 
 #mytable thead tr th{
     text-align:center;

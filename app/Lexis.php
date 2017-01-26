@@ -13,7 +13,7 @@ class Lexis extends Model
 //    单词和用户多对一
     public function user()
     {
-        return $this->belongsTo('App\User');
+        return $this->belongsTo('App\User','user_id');
     }
 
 }
