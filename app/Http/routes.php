@@ -16,6 +16,8 @@ Route::group(['middleware' => ['web']], function(){
         Route::get('word/{id}/update', 'WordController@update');
         Route::get('word/{id}/delete', 'WordController@destroy');
 
+        Route::get('qr_code','WordController@qr_code');
+
     });
 
 });

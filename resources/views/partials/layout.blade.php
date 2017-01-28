@@ -5,6 +5,11 @@
     <title>YH Dictionary</title>
     <link href="/css/bootstrap.css" rel="stylesheet">
     <link href="/css/style.css" rel="stylesheet">
+    <style>
+        .visible-print{
+            display:block !important;
+        }
+    </style>
 </head>
 <body>
 
@@ -15,6 +20,7 @@
     </div>
 
     @include('partials.footer')
+
 
 <script src="/js/jquery-2.2.2.js"></script>
 <script src="/js/bootstrap.js"></script>

@@ -86,4 +86,9 @@ class WordController extends Controller
         return back();
     }
 
+    public function qr_code()
+    {
+        return view('word.QrCode');
+    }
+
 }
