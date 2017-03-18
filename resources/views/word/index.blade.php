@@ -26,6 +26,7 @@
     <div class="row">
         <table class="table table-bordered">
             <thead>
+            <tr>
                 <th class="text-center">id</th>
                 <th>spelling</th>
                 <th>part of speech</th>
@@ -33,6 +34,7 @@
                 <th>meaning</th>
                 <th>user</th>
                 <th>operation</th>
+            </tr>
             </thead>
             <tbody>
             @foreach($words as $word)
